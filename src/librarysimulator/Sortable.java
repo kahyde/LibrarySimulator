@@ -3,6 +3,10 @@ package librarysimulator;
 /**
  * @author kelseyhyde
  */
-public interface Sortable {
+interface Sortable {
+    
+    public String produceCategory();
+    
+    public void sort();
     
 }
