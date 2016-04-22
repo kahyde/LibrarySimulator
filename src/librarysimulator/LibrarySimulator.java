@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * @author kelseyhyde
  */
-public class LibrarySimulator extends Thread{
+public class LibrarySimulator{
 
     public static void main(String[] args) throws InterruptedException {
         ArrayList<SortableBook> library = new ArrayList<>();

@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /**
  * @author kelseyhyde
  */
-class Customer extends Thread {
+public class Customer extends Thread {
     private ArrayList<SortableBook> library;
     private int id;
     
-    Customer(ArrayList<SortableBook> library, int id){
+    public Customer(ArrayList<SortableBook> library, int id){
         this.library = library;
         this.id = id;
     }

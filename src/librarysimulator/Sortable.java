@@ -3,7 +3,7 @@ package librarysimulator;
 /**
  * @author kelseyhyde
  */
-interface Sortable {
+public interface Sortable {
     
     public String produceCategory();
     

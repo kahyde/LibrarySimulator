@@ -5,11 +5,11 @@ import java.util.ArrayList;
 /**
  * @author kelseyhyde
  */
-class Assistant extends Thread {
+public class Assistant extends Thread {
     ArrayList<SortableBook> library;
     ArrayList<Integer> newDeweys;
     
-    Assistant(ArrayList<SortableBook> library, ArrayList<Integer> newDeweys){
+    public Assistant(ArrayList<SortableBook> library, ArrayList<Integer> newDeweys){
         this.library = library;
         this.newDeweys = newDeweys;
     }
