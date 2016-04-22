@@ -3,10 +3,10 @@ package librarysimulator;
 /**
  * @author kelseyhyde
  */
-class ReaderThread extends Thread {
+class Customer extends Thread {
     SortableBook book;
     
-    ReaderThread(SortableBook book){
+    Customer(SortableBook book){
         this.book = book;
     }
     
