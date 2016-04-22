@@ -38,6 +38,18 @@ class SortableBook extends Book implements Sortable {
         
     }
     
+    public void reSort(){
+        String category = this.produceCategory();
+        
+        if (sorted){
+            System.out.println("The book " + title + " has been re-sorted into the category: " + category);
+            System.out.println("The number of books sorted remains: " + sortedCount);
+        }
+        else {
+            System.out.println("The book: " + title + " hasn't been sorted yet!");
+        }
+    }
+    
     @Override
     public String produceCategory(){
         if (deweyDecimal >= 0 && deweyDecimal <= 99 )

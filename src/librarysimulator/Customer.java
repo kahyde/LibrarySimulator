@@ -1,20 +1,27 @@
 package librarysimulator;
 
+import java.util.ArrayList;
+
 /**
  * @author kelseyhyde
  */
 class Customer extends Thread {
-    SortableBook book;
+    private ArrayList<SortableBook> library;
+    private int id;
     
-    Customer(SortableBook book){
-        this.book = book;
+    Customer(ArrayList<SortableBook> library, int id){
+        this.library = library;
+        this.id = id;
     }
     
     @Override
     public void run(){
-        synchronized(book){
-            System.out.println("ReaderThread now reading dewey");
-            System.out.println("Reader: Dewey is: " + book.getDeweyDecimal());
+        
+        for (SortableBook book : library) {
+            synchronized (book) {
+                System.out.println("Customer " + id + " now reading dewey for book: " + book.getTitle());
+                System.out.println("Customer " + id + ": Dewey for book " + book.getTitle() + " is: " + book.getDeweyDecimal());
+            }
         }
     }
 }

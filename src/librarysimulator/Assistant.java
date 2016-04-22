@@ -1,22 +1,29 @@
 package librarysimulator;
 
+import java.util.ArrayList;
+
 /**
  * @author kelseyhyde
  */
 class Assistant extends Thread {
-    SortableBook book;
-    int newDewey;
-    Assistant(SortableBook book, int newDewey){
-        this.book = book;
-        this.newDewey = newDewey;
+    ArrayList<SortableBook> library;
+    ArrayList<Integer> newDeweys;
+    
+    Assistant(ArrayList<SortableBook> library, ArrayList<Integer> newDeweys){
+        this.library = library;
+        this.newDeweys = newDeweys;
     }
     
     public void run(){
-        synchronized(book){
-            System.out.println("WriterThread setting dewey and resorting:");
-            book.setDeweyDecimal(newDewey);
-            book.sort();
-            System.out.println("Writer thread finished sorting. Dewey is now: " + book.getDeweyDecimal());
+        for (int i = 0; i < library.size(); i++) {
+            SortableBook book = library.get(i);
+            synchronized (book) {
+            System.out.println("Assistant setting dewey and resorting for book: " + book.getTitle());
+            book.setDeweyDecimal(newDeweys.get(i));
+            book.reSort();
+            System.out.println("Assistant finished sorting book: " + book.getTitle() + ". Dewey is now: " + book.getDeweyDecimal());
+            }
         }
+        
     }
 }
